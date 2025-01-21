@@ -22,12 +22,12 @@ if (isset($_GET['action'])) {
             }
             break;
     }
-
 } else {
     fetchDetails($pdo);
 }
 
-function fetchDetails($pdo) {
+function fetchDetails($pdo)
+{
     $query = "SELECT * FROM get_empresas()";
     $stmt = $pdo->query($query);
     $empresas = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -48,10 +48,10 @@ function fetchDetails($pdo) {
             </tr>
         ";
     }
-    
 }
 
-function fetchDetailsByRut($pdo, $rut) {
+function fetchDetailsByRut($pdo, $rut)
+{
     $query = "SELECT * FROM get_empresas_detalle(?)";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$rut]);
@@ -73,7 +73,8 @@ function fetchDetailsByRut($pdo, $rut) {
     }
 }
 
-function fetchComunasByRegion($pdo, $regionId) {
+function fetchComunasByRegion($pdo, $regionId)
+{
     $query = "SELECT * FROM comuna WHERE id_region = ?";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$regionId]);
@@ -83,7 +84,8 @@ function fetchComunasByRegion($pdo, $regionId) {
     }
 }
 
-function fetchCiudadByComuna($pdo, $comunaId) {
+function fetchCiudadByComuna($pdo, $comunaId)
+{
     $query = "SELECT * FROM ciudad WHERE id_comuna = ?";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$comunaId]);
@@ -92,5 +94,3 @@ function fetchCiudadByComuna($pdo, $comunaId) {
         echo '<option value="' . htmlspecialchars($row['id']) . '">' . htmlspecialchars($row['name']) .  '</option>';
     }
 }
-
-?>

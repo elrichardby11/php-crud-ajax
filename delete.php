@@ -12,14 +12,12 @@ if (isset($_GET['rut'])) {
     $query = "SELECT eliminar_empresa(:rut)";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':rut', $rut, PDO::PARAM_INT);
-    
+
     if (!$stmt->execute()) {
         echo "Error al eliminar la empresa.";
         exit;
     }
-    
+
     header("Location: index.php");
     exit;
-    
-} 
-?>
+}

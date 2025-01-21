@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include('config.php');
 
@@ -54,171 +54,173 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Empresa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-<main class="flex-grow-1 bg-white py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">  
-            <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="text-left">Modificar Empresa</h2>
-        </div>
-        <hr>
-                <form method="post" action="" enctype="multipart/form-data">
-                    <div class="row g-3">
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label for="rut" class="form-label"><strong>RUT (*)</strong></label>
-                                <input type="text" class="form-control" id="rut" name="rut" required placeholder="RUT" value="<?php echo htmlspecialchars($empresa['rut']) . "-" . htmlspecialchars($empresa['dv']);?>" readonly disabled>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label for="codigo" class="form-label"><strong>Código</strong></label>
-                                <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código Interno" value="<?php echo htmlspecialchars($empresa['codigo']); ?>">
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label for="direccion" class="form-label"><strong>Dirección (*)</strong></label>
-                                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección Principal" required value="<?php echo htmlspecialchars($empresa['direccion']); ?>">
-                            </div>
-                        </div>
+    <main class="flex-grow-1 bg-white py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="text-left">Modificar Empresa</h2>
                     </div>
-
-                    <br>
-
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label for="razon_social" class="form-label"><strong>Razón Social (*)</strong></label>
-                                <input type="text" class="form-control" id="razon_social" name="razon_social" placeholder="Razón Social" required value="<?php echo htmlspecialchars($empresa['razon_social']); ?>">
-                            </div> 
-                        </div>
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label for="region" class="form-label"><strong>Región</strong></label>
-                                <select id="region" class="form-select" name="region">
-                                    <?php foreach ($regiones as $region): ?>
-                                        <option value="<?php echo $region['id']; ?>" <?php echo $region['id'] == $current_region ? 'selected' : ''; ?>>
-                                            <?php echo htmlspecialchars($region['name']); ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
+                    <hr>
+                    <form method="post" action="" enctype="multipart/form-data">
+                        <div class="row g-3">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="rut" class="form-label"><strong>RUT (*)</strong></label>
+                                    <input type="text" class="form-control" id="rut" name="rut" required placeholder="RUT" value="<?php echo htmlspecialchars($empresa['rut']) . "-" . htmlspecialchars($empresa['dv']); ?>" readonly disabled>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <br>
-
-                    <div class="row g-3">
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label for="giro" class="form-label"><strong>Giro Comercial (*)</strong></label>
-                                <input type="text" class="form-control" id="giro" name="giro" placeholder="Giro Comercial" required value="<?php echo htmlspecialchars($empresa['giro']); ?>">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="codigo" class="form-label"><strong>Código</strong></label>
+                                    <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código Interno" value="<?php echo htmlspecialchars($empresa['codigo']); ?>">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-group">
-                            <label for="comuna" class="form-label"><strong>Comuna</strong></label>
-                            <select id="comuna" class="form-select" name="comuna">
-                            <?php foreach ($comunas as $comuna): ?>
-                            <option value="<?= $comuna['id']; ?>" 
-                                <?= $comuna['id'] == $empresa['id_comuna'] ? 'selected' : ''; ?>>
-                                <?= htmlspecialchars($comuna['name']); ?>
-                                </option>
-                            <?php endforeach; ?>
-                            </select>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-group">
-                            <label for="ciudad" class="form-label"><strong>Ciudad</strong></label>
-                            <select id="ciudad" class="form-select" name="ciudad" disabled>
-                        </select>
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="direccion" class="form-label"><strong>Dirección (*)</strong></label>
+                                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección Principal" required value="<?php echo htmlspecialchars($empresa['direccion']); ?>">
+                                </div>
                             </div>
                         </div>
 
-                    </div>
+                        <br>
 
-                    <br>
-                    
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label for="email" class="form-label"><strong>E-mail</strong></label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="e-mail" value="<?php echo htmlspecialchars($empresa['e_mail']); ?>">
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="razon_social" class="form-label"><strong>Razón Social (*)</strong></label>
+                                    <input type="text" class="form-control" id="razon_social" name="razon_social" placeholder="Razón Social" required value="<?php echo htmlspecialchars($empresa['razon_social']); ?>">
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="region" class="form-label"><strong>Región</strong></label>
+                                    <select id="region" class="form-select" name="region">
+                                        <?php foreach ($regiones as $region): ?>
+                                            <option value="<?php echo $region['id']; ?>" <?php echo $region['id'] == $current_region ? 'selected' : ''; ?>>
+                                                <?php echo htmlspecialchars($region['name']); ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label for="telefono" class="form-label"><strong>Teléfono</strong></label>
-                                <input type="phone" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="<?php echo htmlspecialchars($empresa['telefono']); ?>">
-                        </div>
-                        </div>
 
-                    </div>
+                        <br>
 
-                    <br>
-
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label for="text" class="form-label"><strong>Observación</strong></label>
-                                <textarea class="form-control" id="text" name="text" rows="3" placeholder="Observación"><?php echo htmlspecialchars($empresa['observacion']); ?></textarea>
+                        <div class="row g-3">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="giro" class="form-label"><strong>Giro Comercial (*)</strong></label>
+                                    <input type="text" class="form-control" id="giro" name="giro" placeholder="Giro Comercial" required value="<?php echo htmlspecialchars($empresa['giro']); ?>">
+                                </div>
                             </div>
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="comuna" class="form-label"><strong>Comuna</strong></label>
+                                    <select id="comuna" class="form-select" name="comuna">
+                                        <?php foreach ($comunas as $comuna): ?>
+                                            <option value="<?= $comuna['id']; ?>"
+                                                <?= $comuna['id'] == $empresa['id_comuna'] ? 'selected' : ''; ?>>
+                                                <?= htmlspecialchars($comuna['name']); ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="ciudad" class="form-label"><strong>Ciudad</strong></label>
+                                    <select id="ciudad" class="form-select" name="ciudad" disabled>
+                                    </select>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="col-md">
-                            <div class="form-floating">
-                            <div id="categorias-list">
-                            <?php foreach ($categorias as $categoria): ?>
+
+                        <br>
+
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="email" class="form-label"><strong>E-mail</strong></label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="e-mail" value="<?php echo htmlspecialchars($empresa['e_mail']); ?>">
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="telefono" class="form-label"><strong>Teléfono</strong></label>
+                                    <input type="phone" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="<?php echo htmlspecialchars($empresa['telefono']); ?>">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="text" class="form-label"><strong>Observación</strong></label>
+                                    <textarea class="form-control" id="text" name="text" rows="3" placeholder="Observación"><?php echo htmlspecialchars($empresa['observacion']); ?></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating">
+                                    <div id="categorias-list">
+                                        <?php foreach ($categorias as $categoria): ?>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="categoria" id="categoria<?php echo $categoria['id']; ?>" value="<?php echo $categoria['id']; ?>" <?php echo in_array($categoria['id'], explode(',', $empresa['id_categoria'])) ? 'checked' : ''; ?>>
+                                                <label class="form-check-label" for="categoria<?php echo $categoria['id']; ?>">
+                                                    Categoría <?php echo htmlspecialchars($categoria['name']); ?>
+                                                </label>
+                                            </div>
+                                        <?php endforeach; ?>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class="row g-2">
+                            <div class="col-md">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="categoria" id="categoria<?php echo $categoria['id']; ?>" value="<?php echo $categoria['id']; ?>" <?php echo in_array($categoria['id'], explode(',', $empresa['id_categoria'])) ? 'checked' : ''; ?>>
-                                    <label class="form-check-label" for="categoria<?php echo $categoria['id']; ?>">
-                                        Categoría <?php echo htmlspecialchars($categoria['name']); ?>
+                                    <input class="form-check-input" type="checkbox" value="1" id="vigente" name="vigente" <?php echo $empresa['vigente'] ? 'checked' : ''; ?>>
+                                    <label class="form-check-label" for="vigente">
+                                        Vigente
                                     </label>
                                 </div>
-                            <?php endforeach; ?>
-
-                            </div>
                             </div>
                         </div>
 
-                    </div>
+                        <br>
 
-                    <br>
-
-                    <div class="row g-2">
-                        <div class="col-md">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" id="vigente" name="vigente" <?php echo $empresa['vigente'] ? 'checked' : ''; ?>>
-                            <label class="form-check-label" for="vigente">
-                                Vigente
-                            </label>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <a onclick="goBack()" class="btn btn-light">Cerrar</a>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <a href="delete.php?rut=<?php echo urlencode($empresa['rut']); ?>" class="btn btn-danger">Eliminar</a>
+                                <button type="submit" class="btn btn-primary">Modificar</button>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-
-                    <br>
-
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <a onclick="goBack()" class="btn btn-light">Cerrar</a>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="delete.php?rut=<?php echo urlencode($empresa['rut']); ?>" class="btn btn-danger">Eliminar</a>
-                            <button type="submit" class="btn btn-primary">Modificar</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -230,16 +232,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         let isPageLoaded = false;
         var initialRegionId = $('#region').val();
 
-    if (initialRegionId) {
-        $.ajax({
-            url: 'ajaxfile.php',
-            method: 'GET',
-            data: { action: 'fetch_comunas_by_region', id_region: initialRegionId },
-            success: function(data) {
-                $('#comuna').trigger('change');
-            }
-        });
-    }
+        if (initialRegionId) {
+            $.ajax({
+                url: 'ajaxfile.php',
+                method: 'GET',
+                data: {
+                    action: 'fetch_comunas_by_region',
+                    id_region: initialRegionId
+                },
+                success: function(data) {
+                    $('#comuna').trigger('change');
+                }
+            });
+        }
         setTimeout(function() {
             isPageLoaded = true;
         }, 100);
@@ -251,7 +256,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $.ajax({
                 url: 'ajaxfile.php',
                 method: 'GET',
-                data: { action: 'fetch_comunas_by_region', id_region: regionId },
+                data: {
+                    action: 'fetch_comunas_by_region',
+                    id_region: regionId
+                },
                 success: function(data) {
                     $('#comuna').html(data);
                     $('#comuna').trigger('change');
@@ -265,7 +273,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $.ajax({
                     url: 'ajaxfile.php',
                     method: 'GET',
-                    data: { action: 'fetch_ciudad_by_comuna', id_comuna: comunaId },
+                    data: {
+                        action: 'fetch_ciudad_by_comuna',
+                        id_comuna: comunaId
+                    },
                     success: function(data) {
                         $('#ciudad').html(data);
                     },
@@ -283,8 +294,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         window.history.back();
     }
 
-        // Verifica el email en tiempo real
-        document.addEventListener('DOMContentLoaded', function() {
+    // Verifica el email en tiempo real
+    document.addEventListener('DOMContentLoaded', function() {
         var txtEmail = document.getElementById('email');
 
         email.addEventListener('blur', function() {
@@ -298,7 +309,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         });
     })
-
 </script>
 </body>
+
 </html>
