@@ -55,13 +55,13 @@
 ## Demo
 
 ### Listado Normal
-![image](https://github.com/user-attachments/assets/738515e8-f11a-4039-8580-40ff111eb31a)
+![image](https://github.com/user-attachments/assets/76b138cb-47b7-445d-a799-be9eaa825d87)
 
 ### Listado Completo
-![image](https://github.com/user-attachments/assets/f98b50de-5946-4759-99d3-7dd78bea4bdc)
+![image](https://github.com/user-attachments/assets/3ed57daa-7199-4f9a-a3d1-afbf6264e53e)
 
 ### Añadir
-![image](https://github.com/user-attachments/assets/d4355e27-9227-4b3c-a475-94c4d1c63943)
+![image](https://github.com/user-attachments/assets/ef8aee73-98f6-40e5-b610-67cc7dbc9304)
 
 ### Modificar 
-![image](https://github.com/user-attachments/assets/b78f31ed-105c-4c67-8cf2-23150475887b)
+![image](https://github.com/user-attachments/assets/0b97c7cd-1e13-449d-b89e-80376dd76676)
